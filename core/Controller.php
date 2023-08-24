@@ -4,7 +4,7 @@ namespace app\core;
 
 class Controller
 {
-    private string $layout = 'main';
+    public string $layout = 'main';
     public function render($view, $params = [])
     {
         return Application::getApp()->getRouter()->renderView($view, $params);

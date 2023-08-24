@@ -1,6 +1,7 @@
 <?php
 
 namespace app\Controllers;
+USE app\models\DataBase;
 
 use app\core\Application;
 use app\core\Controller;
@@ -16,7 +17,8 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         if ($request->isPost()){
-            return  'handing submitted data';
+            DataBase::setDB(new DataBase());
+            DataBase::getDB()->connect();
         }
 
         $this->setLayout('auth');

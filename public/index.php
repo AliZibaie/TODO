@@ -18,7 +18,6 @@ $app->getRouter()->post('/login',[AuthController::class,'login']);
 $app->getRouter()->get('/signup',[AuthController::class,'register']);
 $app->getRouter()->post('/signup',[AuthController::class,'register']);
 
-
 $app->run();
 
 

@@ -1,5 +1,6 @@
 <?php
 namespace app\core;
+use app\Controllers\AuthController;
 use app\Controllers\SiteController;
 
 class Router
@@ -33,7 +34,7 @@ class Router
         $callback= $this->routes[$method][$path] ?? false;
         if (!$callback){
             $this->response->setStatusCode(404);
-            return $this->renderView('_404');
+//            return $this->renderView('_404');
         }
         if (is_string($callback)){
             return $this->renderView($callback);
@@ -41,7 +42,6 @@ class Router
         if (is_array($callback)){
             Application::getApp()->setController(new $callback[0]);
             $callback[0] = Application::getApp()->getController();
-
         }
 
         return call_user_func($callback, $this->request);
@@ -64,7 +64,8 @@ class Router
     }
     public function layoutContent(): string
     {
-        $layout = Application::getApp()->getController()->getLayout();
+        Application::getApp()->setController(new Controller());
+        $layout = Application::getApp()->getController()->layout;
         ob_start();
         include_once Application::getROOTDIR()."/views/layout/$layout.php";
         return ob_get_clean();

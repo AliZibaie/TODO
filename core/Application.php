@@ -7,7 +7,7 @@ class Application
     private Router $router;
     private Request $request;
     private Response $response;
-    private Controller $controller;
+    private ?Controller $controller = null;
     private static Application $app;
     private static string $ROOT_DIR;
 
@@ -79,7 +79,7 @@ class Application
      */
     public function getController(): Controller
     {
-        return $this->controller;
+           return $this->controller;
     }
 
 }
