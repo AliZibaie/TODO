@@ -1,0 +1,15 @@
+{
+    "name": "laptop/todo",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Elham Qafouri",
+            "email": "elham.qafouri.91@gmail.com"
+        }
+    ],
+    "require": {}
+}
